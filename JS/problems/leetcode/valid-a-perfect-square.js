@@ -1,14 +1,21 @@
 var isPerfectSquare = function (num) {
-  let result = num;
-  while (1 < result) {
-    result = result / 2;
+  let left = 0;
+  let right = num;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    let target = mid * mid;
+    if (num === target) {
+      return true;
+    } else if (num > target) {
+      left = mid + 1;
+    } else if (num < target) {
+      right = mid - 1;
+    }
   }
-  return Number.isInteger(result);
+  return false;
 };
 
-console.log(isPerfectSquare(16));
-console.log(isPerfectSquare(14));
-console.log(isPerfectSquare(10));
-console.log(isPerfectSquare(49));
-console.log(isPerfectSquare(12));
-console.log(isPerfectSquare(2147483647));
+for (let index = 1; index <= 16; index++) {
+  console.log(index + "is perfect square: " + isPerfectSquare(index));
+}
