@@ -16,6 +16,6 @@ var isPerfectSquare = function (num) {
   return false;
 };
 
-for (let index = 1; index <= 16; index++) {
+for (let index = 1; index <= 37; index++) {
   console.log(index + "is perfect square: " + isPerfectSquare(index));
 }
